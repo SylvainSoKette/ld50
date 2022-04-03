@@ -11,11 +11,7 @@ func _on_StartButton_pressed():
 
 
 func _on_StoryButton_pressed():
-	get_tree().change_scene("res://scenes/IntroCutscene.tscn")
-
-
-func _on_ControlsButton_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://scenes/Story.tscn")
 
 
 func _on_QuitButton_pressed():

@@ -14,7 +14,6 @@ region = Rect2( 32, 0, 16, 16 )
 
 [node name="MainGame" type="Node"]
 script = ExtResource( 6 )
-max_prepare_time = 1
 target_planet_path = NodePath("Space/Planets/Earth")
 asteroid_min_distance = 1700
 asteroid_max_distance = 2500
@@ -171,4 +170,5 @@ well_radius = 256
 position = Vector2( -34, -9 )
 
 [connection signal="timeout" from="GameClock" to="." method="_on_GameClock_timeout"]
+[connection signal="drop_turret" from="Space/Player" to="." method="_on_Player_drop_turret"]
 [connection signal="fire_ze_missile" from="Space/Player" to="." method="_on_Player_fire_ze_missile"]

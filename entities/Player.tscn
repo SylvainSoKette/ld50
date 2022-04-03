@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/spirtesheet.png" type="Texture" id=2]
 [ext_resource path="res://entities/Radar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/MissileTurret.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -10,6 +11,7 @@
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
+missile_turret = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
