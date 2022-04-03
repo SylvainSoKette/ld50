@@ -8,7 +8,7 @@ A game made in 48 hours during Ludum Dare 50 in April 2020.
 ## DinoMight
 
 No time left ! We have to protect our planet ! Our species survived over a
-hundred million years, we developped all kind of technologies, we are
+hundred million years, we developed all kind of technologies, we are
 forever !
 
 Get out there and place our advanced killer satellites to destroy our nemesis:
