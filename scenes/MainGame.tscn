@@ -14,7 +14,10 @@ region = Rect2( 32, 0, 16, 16 )
 
 [node name="MainGame" type="Node"]
 script = ExtResource( 6 )
-target_planet = NodePath("Space/Planets/Earth")
+max_prepare_time = 1
+target_planet_path = NodePath("Space/Planets/Earth")
+asteroid_min_distance = 1700
+asteroid_max_distance = 2500
 asteroid = ExtResource( 5 )
 
 [node name="GameClock" type="Timer" parent="."]
@@ -105,43 +108,60 @@ anchor_bottom = 1.0
 [node name="Planets" type="Node2D" parent="Space"]
 
 [node name="Mercury" parent="Space/Planets" instance=ExtResource( 4 )]
-position = Vector2( -357, -225 )
-pixel_size = 16
-mass = 128
+position = Vector2( -428, -242 )
+pixel_size = 8
+mass = 20
 well_radius = 128
-
-[node name="GravityWell" parent="Space/Planets/Mercury" index="0"]
-mass = 128
-well_radius = 128
-
-[node name="Sprite" parent="Space/Planets/Mercury" index="1"]
-region_rect = Rect2( 0, 16, 16, 16 )
 
 [node name="Venus" parent="Space/Planets" instance=ExtResource( 4 )]
-position = Vector2( -365, 123 )
-pixel_size = 32
-mass = 1000
+position = Vector2( -524, 234 )
+planet_type = 1
+pixel_size = 16
+mass = 100
 well_radius = 256
-has_indicator = false
-
-[node name="Sprite" parent="Space/Planets/Venus" index="1"]
-region_rect = Rect2( 32, 32, 32, 32 )
-
-[node name="Indicator" parent="Space/Planets/Venus/PlayerDetector" index="0"]
-region_rect = Rect2( 80, 144, 16, 16 )
 
 [node name="Earth" parent="Space/Planets" instance=ExtResource( 4 )]
-pixel_size = 32
-mass = 1000
+planet_type = 2
+pixel_size = 8
+mass = 100
 well_radius = 256
 
-[node name="Indicator" parent="Space/Planets/Earth/PlayerDetector" index="0"]
-region_rect = Rect2( 96, 144, 16, 16 )
+[node name="Mars" parent="Space/Planets" instance=ExtResource( 4 )]
+position = Vector2( 264, 503 )
+planet_type = 3
+pixel_size = 8
+mass = 30
+well_radius = 192
+
+[node name="Jupiter" parent="Space/Planets" instance=ExtResource( 4 )]
+position = Vector2( -63, -883 )
+planet_type = 4
+pixel_size = 128
+mass = 512
+well_radius = 512
+
+[node name="Saturn" parent="Space/Planets" instance=ExtResource( 4 )]
+position = Vector2( 1284, -12 )
+planet_type = 5
+pixel_size = 128
+mass = 512
+well_radius = 512
+
+[node name="Uranus" parent="Space/Planets" instance=ExtResource( 4 )]
+position = Vector2( 1280, -1445 )
+planet_type = 6
+pixel_size = 64
+mass = 256
+well_radius = 256
+
+[node name="Neptune" parent="Space/Planets" instance=ExtResource( 4 )]
+position = Vector2( 2445, -864 )
+planet_type = 7
+pixel_size = 64
+mass = 256
+well_radius = 256
 
 [node name="Asteroids" type="Node2D" parent="Space"]
-
-[node name="Asteroid" parent="Space/Asteroids" instance=ExtResource( 5 )]
-position = Vector2( 74, -65 )
 
 [node name="Turrets" type="Node2D" parent="Space"]
 
@@ -152,10 +172,3 @@ position = Vector2( -34, -9 )
 
 [connection signal="timeout" from="GameClock" to="." method="_on_GameClock_timeout"]
 [connection signal="fire_ze_missile" from="Space/Player" to="." method="_on_Player_fire_ze_missile"]
-
-[editable path="Space/Planets/Mercury"]
-[editable path="Space/Planets/Mercury/PlayerDetector"]
-[editable path="Space/Planets/Venus"]
-[editable path="Space/Planets/Venus/PlayerDetector"]
-[editable path="Space/Planets/Earth"]
-[editable path="Space/Planets/Earth/PlayerDetector"]

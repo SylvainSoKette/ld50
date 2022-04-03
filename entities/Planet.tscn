@@ -5,11 +5,13 @@
 [ext_resource path="res://entities/PlayerDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprites/spirtesheet.png" type="Texture" id=6]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 16.0
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
 
 [node name="Planet" type="StaticBody2D"]
 script = ExtResource( 3 )
+
+[node name="PlayerDetector" parent="." instance=ExtResource( 4 )]
 
 [node name="GravityWell" parent="." instance=ExtResource( 1 )]
 
@@ -19,6 +21,4 @@ region_enabled = true
 region_rect = Rect2( 0, 32, 32, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
-
-[node name="PlayerDetector" parent="." instance=ExtResource( 4 )]
+shape = SubResource( 1 )

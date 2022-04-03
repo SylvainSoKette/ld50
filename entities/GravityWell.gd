@@ -2,15 +2,11 @@ extends Area2D
 
 class_name GravityWell
 
-export (int) var mass := 1000
-export (int) var well_radius := 256
+export (int) var mass
+export (int) var well_radius
 
 onready var parent = $".."
 onready var collision_shape = $CollisionShape2D
-
-
-func _ready() -> void:
-	collision_shape.shape.radius = well_radius
 
 
 func _physics_process(_delta) -> void:
@@ -20,3 +16,10 @@ func _physics_process(_delta) -> void:
 			var direction:Vector2 = distance.normalized()
 			var force:float = Globals.G * self.mass / distance.length_squared() 
 			body.apply_central_impulse(direction * force)
+
+func set_mass(value:int) -> void:
+	self.mass = value
+
+func set_well_radius(value:int) -> void:
+	self.well_radius = value
+	collision_shape.shape.radius = well_radius

@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/sprites/background-ending.png" type="Texture" id=2]
+[ext_resource path="res://scenes/LostCutscene.gd" type="Script" id=3]
+
+[node name="LostCutscene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="DinoEnd" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -50.5
+margin_right = 50.5
+margin_bottom = 12.0
+text = "Dinos could'nt make it..."
+
+[node name="MakeBy" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -86.5
+margin_top = -20.0
+margin_right = 86.5
+text = "A game made by SoKette for Ludum Dare 50"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = -28.0
+margin_right = 95.0
+margin_bottom = 28.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 95.0
+margin_bottom = 12.0
+text = "Somehow, life restarted"
+align = 1
+
+[node name="ButtonRestart" type="Button" parent="VBoxContainer"]
+margin_top = 16.0
+margin_right = 95.0
+margin_bottom = 34.0
+text = "Restart"
+__meta__ = {
+"_editor_description_": "Restart"
+}
+
+[node name="ButtonMainMenu" type="Button" parent="VBoxContainer"]
+margin_top = 38.0
+margin_right = 95.0
+margin_bottom = 56.0
+text = "Main Menu"
+
+[node name="ButtonQuit" type="Button" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 95.0
+margin_bottom = 78.0
+text = "Quit"
+__meta__ = {
+"_editor_description_": "Quit"
+}
+
+[connection signal="pressed" from="VBoxContainer/ButtonRestart" to="." method="_on_ButtonRestart_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonQuit" to="." method="_on_ButtonQuit_pressed"]
