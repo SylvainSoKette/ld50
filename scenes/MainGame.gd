@@ -23,6 +23,8 @@ onready var turrets_layer := $Space/Turrets
 onready var projectiles_layer := $Space/Projectiles
 onready var player := $Space/Player
 
+onready var music_player = $AudioStreamPlayer
+
 var wave setget _set_wave
 var money setget _set_money
 var current_gamephase setget _set_current_gamephase

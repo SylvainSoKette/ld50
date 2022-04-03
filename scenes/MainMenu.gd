@@ -14,5 +14,9 @@ func _on_StoryButton_pressed():
 	get_tree().change_scene("res://scenes/Story.tscn")
 
 
+func _on_ControlsButton_pressed():
+	get_tree().change_scene("res://scenes/Controls.tscn")
+
+
 func _on_QuitButton_pressed():
 	get_tree().quit()

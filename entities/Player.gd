@@ -50,5 +50,5 @@ func _fire() -> void:
 		can_fire = true
 
 func _place_missile_turret() -> void:
-	if Input.is_action_just_pressed("ui_left"):
+	if Input.is_action_just_pressed("place_turret"):
 		emit_signal("drop_turret", missile_turret, self.global_position)
