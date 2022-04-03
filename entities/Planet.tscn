@@ -9,7 +9,6 @@
 radius = 16.0
 
 [node name="Planet" type="StaticBody2D"]
-position = Vector2( 64, 64 )
 script = ExtResource( 3 )
 
 [node name="GravityWell" parent="." instance=ExtResource( 1 )]

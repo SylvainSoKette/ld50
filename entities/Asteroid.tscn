@@ -7,7 +7,6 @@
 radius = 8.0
 
 [node name="Asteroid" type="RigidBody2D"]
-position = Vector2( 390, -94 )
 mode = 2
 gravity_scale = 0.0
 linear_velocity = Vector2( 0, 10 )

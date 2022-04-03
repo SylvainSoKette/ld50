@@ -104,18 +104,58 @@ anchor_bottom = 1.0
 
 [node name="Planets" type="Node2D" parent="Space"]
 
+[node name="Mercury" parent="Space/Planets" instance=ExtResource( 4 )]
+position = Vector2( -357, -225 )
+pixel_size = 16
+mass = 128
+well_radius = 128
+
+[node name="GravityWell" parent="Space/Planets/Mercury" index="0"]
+mass = 128
+well_radius = 128
+
+[node name="Sprite" parent="Space/Planets/Mercury" index="1"]
+region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="Venus" parent="Space/Planets" instance=ExtResource( 4 )]
+position = Vector2( -365, 123 )
+pixel_size = 32
+mass = 1000
+well_radius = 256
+has_indicator = false
+
+[node name="Sprite" parent="Space/Planets/Venus" index="1"]
+region_rect = Rect2( 32, 32, 32, 32 )
+
+[node name="Indicator" parent="Space/Planets/Venus/PlayerDetector" index="0"]
+region_rect = Rect2( 80, 144, 16, 16 )
+
 [node name="Earth" parent="Space/Planets" instance=ExtResource( 4 )]
+pixel_size = 32
+mass = 1000
+well_radius = 256
+
+[node name="Indicator" parent="Space/Planets/Earth/PlayerDetector" index="0"]
+region_rect = Rect2( 96, 144, 16, 16 )
 
 [node name="Asteroids" type="Node2D" parent="Space"]
 
 [node name="Asteroid" parent="Space/Asteroids" instance=ExtResource( 5 )]
+position = Vector2( 74, -65 )
 
 [node name="Turrets" type="Node2D" parent="Space"]
 
 [node name="Projectiles" type="Node2D" parent="Space"]
 
 [node name="Player" parent="Space" instance=ExtResource( 2 )]
-position = Vector2( 367, -44 )
+position = Vector2( -34, -9 )
 
 [connection signal="timeout" from="GameClock" to="." method="_on_GameClock_timeout"]
 [connection signal="fire_ze_missile" from="Space/Player" to="." method="_on_Player_fire_ze_missile"]
+
+[editable path="Space/Planets/Mercury"]
+[editable path="Space/Planets/Mercury/PlayerDetector"]
+[editable path="Space/Planets/Venus"]
+[editable path="Space/Planets/Venus/PlayerDetector"]
+[editable path="Space/Planets/Earth"]
+[editable path="Space/Planets/Earth/PlayerDetector"]
